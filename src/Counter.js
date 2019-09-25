@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { increment, decrement } from "./index.js";
 
 class Counter extends Component {
   increment = () => {
-    this.props.dispatch({ type: "INCREMENT" });
+    this.props.increment();
   };
 
   decrement = () => {
-    this.props.dispatch({ type: "DECREMENT" });
+    this.props.decrement();
   };
 
   render() {
@@ -27,4 +28,12 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Counter);
+const mapDispatchToProps = {
+  increment: increment,
+  decrement: decrement
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Counter);
