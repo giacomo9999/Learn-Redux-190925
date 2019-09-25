@@ -2,12 +2,12 @@ import React from "react";
 import Counter from "./Counter";
 import "./App.css";
 
-function App() {
+const App = () => {
   return (
     <div className="container-outer">
-      <Counter />
+      <Counter count={42} />
     </div>
   );
-}
+};
 
 export default App;
